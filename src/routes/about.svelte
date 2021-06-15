@@ -1,50 +1,39 @@
 <script context="module">
-	import { browser, dev } from '$app/env';
-
-	// we don't need any JS on this page, though we'll load
-	// it in dev so that we get hot module replacement...
-	export const hydrate = dev;
-
-	// ...but if the client-side router is already loaded
-	// (i.e. we came here from elsewhere in the app), use it
-	export const router = browser;
-
-	// since there's no dynamic data here, we can prerender
-	// it so that it gets served as a static asset in prod
 	export const prerender = true;
 </script>
 
-<svelte:head>
-	<title>About</title>
-</svelte:head>
+<script>
+	import Link from '../lib/Link.svelte';
+	import Polaroid from '../lib/Polaroid.svelte';
+</script>
 
-<div class="content">
-	<h1>About this app</h1>
-
-	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<!-- TODO lose the @next! -->
-	<pre>npm init svelte@next</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
-	</p>
-
-	<p>
-		The <a href="/todos">TODOs</a> page illustrates SvelteKit's data loading and form handling. Try using
-		it with JavaScript disabled!
-	</p>
+<h1>Chris Jackson <span class="pronouns">(he/him)</span></h1>
+<div class="polaroid-wrapper">
+	<Polaroid src="/images/githubProfile.jpg" alt="self portrait, github profile pic" disableFilter>
+		Hello!
+	</Polaroid>
 </div>
+<p>
+	I am a senior web engineer, working on building a broader skill set: full stack, dev ops, writing.
+</p>
+<p>
+	I am a prolific code reviewer. I think a good code review practice helps the whole team learn and
+	stay connected.
+</p>
+<p>I believe diverse voices improve products, teams, and the world.</p>
+<p>
+	Find me elsewhere:
+	<Link href="https://github.com/chrsjxn" external>github</Link>
+	-
+	<Link href="https://twitter.com/c_jackson_js" external>twitter</Link>
+</p>
 
 <style>
-	.content {
-		width: 100%;
-		max-width: var(--column-width);
-		margin: var(--column-margin-top) auto 0 auto;
+	.pronouns {
+		font-size: 14pt;
+	}
+
+	.polaroid-wrapper {
+		transform: rotate(1deg);
 	}
 </style>
