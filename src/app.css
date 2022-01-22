@@ -35,7 +35,7 @@ html {
     --background-color: hsl(100, 5%, 95%);
 }
 
-.terminal {
+#svelte.terminal {
     font-size: 1.5rem;
     line-height: 2rem;
     font-family: monospace;
