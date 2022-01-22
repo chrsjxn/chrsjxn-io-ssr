@@ -99,3 +99,7 @@ blockquote {
 	border-left-width: 4px;
 	padding-left: 1rem;
 }
+
+img {
+    max-width: 100%;
+}

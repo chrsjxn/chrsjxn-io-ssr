@@ -6,6 +6,7 @@ import css from 'highlight.js/lib/languages/css'
 import hljsSvelte from 'highlightjs-svelte'
 import MarkdownIt from 'markdown-it'
 import Anchor from 'markdown-it-anchor'
+import { replaceCodePlugin } from "vite-plugin-replace"
 
 hljs.registerLanguage('bash', bash)
 hljs.registerLanguage('javascript', javascript)
@@ -45,6 +46,12 @@ const config = {
 				markdown({
 					mode: Mode.HTML,
 					markdownIt
+				}),
+				replaceCodePlugin({
+					replacements: [{
+						from: "__img_path__",
+						to: process.env.NODE_ENV === "development" ? "images" : "cloudinary"
+					}]
 				})
 			]
 		}

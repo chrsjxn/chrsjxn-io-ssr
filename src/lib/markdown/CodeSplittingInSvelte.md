@@ -59,23 +59,23 @@ We'll start by adding [dynamic imports](https://rollupjs.org/guide/en/#dynamic-i
 
 ```html
 <script>
-  import { Layout, Markdown } from '../Components'
+  import { Layout, Markdown } from '$lib'
   import { onMount } from 'svelte'
 
   let markdown = ''
   
   // When we mount this component, load the markdown chunk:
   onMount(async () => {
-    markdown = (await import('../Markdown/AddingMarkdownToSvelte.md')).default
+    markdown = (await import('$lib/markdown/AddingMarkdownToSvelte.md')).default
   })
 </script>
 
 <Layout>
-  <Markdown {markdown} />
+  <Markdown markdown={html} />
 </Layout>
 ```
 
-One of those lines is a little odd, though: `(await import('../Markdown/AddingMarkdownToSvelte.md')).default`. As a side effect of loading this markdown content as an application chunk, it's been packaged as a module! 
+One of those lines is a little odd, though: `(await import('$lib/markdown/AddingMarkdownToSvelte.md')).default`. As a side effect of loading this markdown content as an application chunk, it's been packaged as a module! 
 
 This does add a small bit of overhead into the file contents, but it's not much. And it does mean that we need to access the `default` export when we import the module.
 
