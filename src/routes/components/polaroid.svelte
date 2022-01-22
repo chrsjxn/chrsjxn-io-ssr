@@ -6,7 +6,7 @@
 	import Polaroid from '$lib/Polaroid.svelte';
 	import MarkdownPost from '$lib/MarkdownPost.svelte';
 	import NextPostLink from '$lib/NextPostLink.svelte';
-	import markdown from '$lib/markdown/PolaroidDemo';
+	import { html } from '$lib/markdown/PolaroidDemo.md';
 
 	export let nextPost = null;
 </script>
@@ -35,7 +35,7 @@
 	</div>
 </div>
 
-<MarkdownPost {markdown} />
+<MarkdownPost markdown={html} />
 <NextPostLink {nextPost} />
 
 <style global>

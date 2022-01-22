@@ -1,11 +1,10 @@
-export default `
 Credit to Una Kravets for inspiration on the polaroid effects. Check out her
 [CSS lomography](https://una.im/lomo/) post for more!
 
 ## Description
 
 This Polaroid component is a quick abstraction around an
-\`img\`
+`img`
 tag. It renders a lightly processed version of an image, using CSS
 [filters](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 to make the image look more vintage.
@@ -16,35 +15,35 @@ complex effects via CSS gradient overlays.
   
 ### Component example
   
-\`\`\`svelte
+```svelte
 <Polaroid
     src="/__img_path__/profile.jpg"
     alt="Developer self portrait"
     effect="drama">
     SF 11/01/2020
 </Polaroid>
-\`\`\`
+```
 
 ## How it works
 
 ### CSS effects
 
 CSS effects in the polaroid component are controlled via the
-\`effect\`
+`effect`
 prop, which toggles an extra class on the image wrapper.
 
 Those extra classes are used to control an
-\`::after\`
-selector that renders a gradient overlay above the image. (\`img\`
+`::after`
+selector that renders a gradient overlay above the image. (`img`
 is a replaced element, so we can't use
-\`::after\`
+`::after`
 on it directly. If it weren't for this, I could save a
-\`div\`
+`div`
 😭)
 
 #### Example effect
 
-\`\`\`css
+```css
 .vignette::after {
     /* Empty content to show the overlay */
     content: '';
@@ -64,23 +63,23 @@ on it directly. If it weren't for this, I could save a
     );
     mix-blend-mode: darken;
 }
-\`\`\`
+```
 
 ### A11y
   
 One nice feature of using an
-\`img\`
+`img`
 tag in this component, rather than the CSS
-\`background\`
+`background`
 properties, is that it allows for easy use of a11y attributes like
-\`alt\`!
+`alt`!
 
 ### Browser support
 
 Does this component work in IE?
 
 Nope! IE doesn't support the
-\`filter\`
+`filter`
 CSS that powers part of the effect, but you may be able to achieve a
 reasonable fallback with just the gradient overlays.
 
@@ -94,4 +93,3 @@ compatibility issue.)
   
 If you'd like to play around with the code, check it out on the
 [svelte repl](https://svelte.dev/repl/c3eed60a7dd34ad3a94a670747f85341?version=3.29.4)!
-`.trim()
