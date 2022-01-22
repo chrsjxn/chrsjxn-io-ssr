@@ -53,7 +53,7 @@ const config = {
 				replaceCodePlugin({
 					replacements: [{
 						from: "__img_path__",
-						to: process.env.NODE_ENV === "development" ? "images" : "cloudinary"
+						to: "images"
 					}]
 				})
 			]
