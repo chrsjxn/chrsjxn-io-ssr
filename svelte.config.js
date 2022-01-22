@@ -52,8 +52,8 @@ const config = {
 				}),
 				replaceCodePlugin({
 					replacements: [{
-						from: "__img_path__",
-						to: "images"
+						from: "/__img_path__/",
+						to: process.env.NODE_ENV === "development" ? "/images/" : "https://res.cloudinary.com/chrsjxn/image/fetch/q_auto,f_auto/https://www.chrsjxn.io/images/"
 					}]
 				})
 			]
