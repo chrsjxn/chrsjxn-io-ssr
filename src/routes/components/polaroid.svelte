@@ -13,6 +13,7 @@
 
 <svelte:head>
 	<title>chrsjxn.io - Polaroid Component Demo</title>
+	<meta name="description" content="CSS polaroid component demo" />
 </svelte:head>
 
 <h1>Polaroid demo</h1>

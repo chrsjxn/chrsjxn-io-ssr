@@ -7,6 +7,11 @@
 	export let nextPost = null;
 </script>
 
+<svelte:head>
+	<title>chrsjxn.io - Reviewing code like a junior engineer</title>
+	<meta name="description" content="Reviewing code like a junior engineer" />
+</svelte:head>
+
 <BlogPost>
 	<div slot="title">Reviewing code like a junior engineer</div>
 	<div slot="date">11/05/2020</div>

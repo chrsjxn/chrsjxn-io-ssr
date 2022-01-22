@@ -1,7 +1,16 @@
+<script context="module">
+	export const prerender = true;
+</script>
+
 <script>
 	import { Link, BlogPost, NextPostLink } from '$lib';
 	export let nextPost = null;
 </script>
+
+<svelte:head>
+	<title>chrsjxn.io - Three tips to be a better code reviewer today</title>
+	<meta name="description" content="Three tips to be a better code reviewer today" />
+</svelte:head>
 
 <BlogPost>
 	<div slot="title">Three tips to be a better code reviewer today</div>
