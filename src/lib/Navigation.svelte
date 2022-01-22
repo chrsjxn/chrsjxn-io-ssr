@@ -2,7 +2,7 @@
 	import Link from './Link.svelte';
 
 	const toggleTerminal = () => {
-		const cl = document.getElementById('body').classList;
+		const cl = document.getElementById('svelte').classList;
 		if (cl.contains('terminal')) {
 			cl.remove('terminal');
 		} else {
