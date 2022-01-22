@@ -11,6 +11,10 @@
 	export let nextPost = null;
 </script>
 
+<svelte:head>
+	<title>chrsjxn.io - Polaroid Component Demo</title>
+</svelte:head>
+
 <h1>Polaroid demo</h1>
 <div class="demo-container">
 	<div>
