@@ -1,0 +1,15 @@
+[[redirects]]
+  from = "/cloudinary/*"
+  to = """\
+    https://res.cloudinary.com/\
+    chrsjxn/\
+    image/fetch/\
+    q_auto,f_auto/\
+    https://www.chrsjxn.io/images/:splat\
+  """
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

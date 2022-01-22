@@ -1,3 +1,5 @@
+import netlify from '@sveltejs/adapter-netlify';
+
 import { Mode, plugin as markdown } from 'vite-plugin-markdown'
 import hljs from 'highlight.js/lib/core'
 import bash from 'highlight.js/lib/languages/bash'
@@ -41,6 +43,7 @@ const config = {
 	kit: {
 		// hydrate the <div id="svelte"> element in src/app.html
 		target: '#svelte',
+		adapter: netlify({ split: false }),
 		vite: {
 			plugins: [
 				markdown({
