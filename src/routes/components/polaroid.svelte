@@ -8,7 +8,9 @@
 	import NextPostLink from '$lib/NextPostLink.svelte';
 	import { html } from '$lib/markdown/PolaroidDemo.md';
 
-	export let nextPost = null;
+	import { posts } from '$lib/modules/posts';
+
+	const nextIndex = posts.findIndex(({ path }) => path === '/components/polaroid') + 1;
 </script>
 
 <svelte:head>
@@ -41,7 +43,7 @@
 </div>
 
 <MarkdownPost markdown={html} />
-<NextPostLink {nextPost} />
+<NextPostLink nextPost={posts[nextIndex]} />
 
 <style global>
 	.demo-container {

@@ -5,8 +5,9 @@
 <script>
 	import { MarkdownPost, NextPostLink } from '$lib';
 	import { html } from '$lib/markdown/WritingCodeReviewFeedback.md';
+	import { posts } from '$lib/modules/posts';
 
-	export let nextPost = null;
+	const nextIndex = posts.findIndex(({ path }) => path === '/code-review/writing-feedback') + 1;
 </script>
 
 <svelte:head>
@@ -18,4 +19,4 @@
 </svelte:head>
 
 <MarkdownPost markdown={html} />
-<NextPostLink {nextPost} />
+<NextPostLink nextPost={posts[nextIndex]} />

@@ -4,7 +4,7 @@
 
 <script>
 	import Link from '../lib/Link.svelte';
-	import { posts } from '../modules/posts';
+	import { posts } from '../lib/modules/posts';
 </script>
 
 <h1>Writing</h1>

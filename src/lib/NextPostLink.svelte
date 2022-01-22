@@ -4,14 +4,12 @@
 </script>
 
 {#if nextPost}
-	<div class="text-m mb-10">
-		<Link href={nextPost.path}>
-			<b>Continue reading:</b><br /><span class="title"
-				>{nextPost.title}
-				({nextPost.date})</span
-			>
-		</Link>
-	</div>
+	<Link href={nextPost.path}>
+		<b>Continue reading:</b><br /><span class="title"
+			>{nextPost.title}
+			({nextPost.date})</span
+		>
+	</Link>
 {/if}
 
 <style>

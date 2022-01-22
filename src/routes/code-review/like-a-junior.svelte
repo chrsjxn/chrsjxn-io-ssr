@@ -4,7 +4,9 @@
 
 <script>
 	import { Aside, BlogPost, NextPostLink } from '$lib/';
-	export let nextPost = null;
+	import { posts } from '$lib/modules/posts';
+
+	const nextIndex = posts.findIndex(({ path }) => path === '/code-review/like-a-junior') + 1;
 </script>
 
 <svelte:head>
@@ -98,7 +100,7 @@
 		</p>
 	</div>
 </BlogPost>
-<NextPostLink {nextPost} />
+<NextPostLink nextPost={posts[nextIndex]} />
 
 <style>
 	.meme-container {

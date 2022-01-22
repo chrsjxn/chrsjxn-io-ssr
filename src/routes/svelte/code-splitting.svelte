@@ -6,7 +6,9 @@
 	import { MarkdownPost, NextPostLink } from '$lib';
 	import { html } from '$lib/markdown/CodeSplittingInSvelte.md';
 
-	export let nextPost = null;
+	import { posts } from '$lib/modules/posts';
+
+	const nextIndex = posts.findIndex(({ path }) => path === '/svelte/code-splitting') + 1;
 </script>
 
 <svelte:head>
@@ -18,4 +20,4 @@
 </svelte:head>
 
 <MarkdownPost markdown={html} />
-<NextPostLink {nextPost} />
+<NextPostLink nextPost={posts[nextIndex]} />
