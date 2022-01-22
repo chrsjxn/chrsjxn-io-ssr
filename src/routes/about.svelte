@@ -7,6 +7,10 @@
 	import Polaroid from '../lib/Polaroid.svelte';
 </script>
 
+<svelte:head>
+	<title>chrsjxn.io - About</title>
+</svelte:head>
+
 <h1>Chris Jackson <span class="pronouns">(he/him)</span></h1>
 <div class="polaroid-wrapper">
 	<Polaroid src="/images/githubProfile.jpg" alt="self portrait, github profile pic" disableFilter>

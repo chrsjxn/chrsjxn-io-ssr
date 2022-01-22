@@ -7,6 +7,10 @@
 	import { posts } from '../lib/modules/posts';
 </script>
 
+<svelte:head>
+	<title>chrsjxn.io - Writing</title>
+</svelte:head>
+
 <h1>Writing</h1>
 <ul>
 	{#each posts as post}
