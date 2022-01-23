@@ -16,9 +16,7 @@
 	};
 </script>
 
-<button on:click={cycleAndPersistTheme} aria-label="Toggle theme"
-	>{$theme?.icon ?? defaultTheme.icon}</button
->
+<button on:click={cycleAndPersistTheme} aria-label="Toggle theme">{$theme?.icon}</button>
 
 <style>
 	button {

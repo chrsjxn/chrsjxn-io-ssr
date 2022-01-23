@@ -22,18 +22,20 @@ const prefersDarkMode = browser ? window.matchMedia('(prefers-color-scheme: dark
 const osPreference = prefersDarkMode.matches ? themes[0] : themes[1]
 
 let localStorageTheme = undefined
-try {
-  switch (window.localStorage.getItem('theme')) {
-    case 'new':
-      localStorageTheme = themes[0]
-      break
-    case 'full':
-      localStorageTheme = themes[1]
-      break
+if (browser) {
+  try {
+    switch (window.localStorage.getItem('theme')) {
+      case 'new':
+        localStorageTheme = themes[0]
+        break
+      case 'full':
+        localStorageTheme = themes[1]
+        break
+    }
+  } catch (e) {
+    //eslint-disable-next-line no-console
+    console.log('Failed to load theme from local storage')
   }
-} catch (e) {
-  //eslint-disable-next-line no-console
-  console.log('Failed to load theme from local storage')
 }
 
 export const theme = writable(localStorageTheme || osPreference || themes[1])
