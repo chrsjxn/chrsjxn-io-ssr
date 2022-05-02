@@ -11,18 +11,17 @@
 	<title>chrsjxn.io - About</title>
 </svelte:head>
 
-<h1>Chris Jackson <span class="pronouns">(he/him)</span></h1>
+<h1>Chris Jackson <span class="pronouns">(he/they)</span></h1>
 <div class="polaroid-wrapper">
 	<Polaroid src="/images/githubProfile.jpg" alt="self portrait, github profile pic" disableFilter>
 		Hello!
 	</Polaroid>
 </div>
 <p>
-	I am a senior web engineer, working on building a broader skill set: full stack, dev ops, writing.
+	I am a Staff Software Engineer, focused on web technology, tooling, and performance. Formerly: DoorDash, Zendesk.
 </p>
 <p>
-	I am a prolific code reviewer. I think a good code review practice helps the whole team learn and
-	stay connected.
+	I love code review, with an emphasis on useful and empathetic feedback.
 </p>
 <p>I believe diverse voices improve products, teams, and the world.</p>
 <p>
