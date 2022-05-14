@@ -2,3 +2,8 @@
   command = "npm run build"
   publish = "build/"
   functions = "functions/"
+
+[[redirects]]
+  from = "cyoa/*"
+  to = "https://tubular-crepe-b715ba.netlify.app/:splat"
+  status = 200
