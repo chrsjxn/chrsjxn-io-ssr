@@ -42,7 +42,7 @@ So let's fix our HTML now. We need to tell the browser that this script is an Ec
 
 ```html
 <!-- Before: <script defer src='/build/bundle.js'></script> -->
-<script type="module" defer src='/build/main.js'></script>
+<script type="module" defer src="/build/main.js"></script>
 ```
 
 With those changes, we should be able to run our site in development without any issues. Loading the page will now load two javascript files, `/build/main.js` and a second file `/build/vendor-[hash].js`.
@@ -59,23 +59,23 @@ We'll start by adding [dynamic imports](https://rollupjs.org/guide/en/#dynamic-i
 
 ```html
 <script>
-  import { Layout, Markdown } from '$lib'
-  import { onMount } from 'svelte'
+	import { Layout, Markdown } from '$lib';
+	import { onMount } from 'svelte';
 
-  let markdown = ''
-  
-  // When we mount this component, load the markdown chunk:
-  onMount(async () => {
-    markdown = (await import('$lib/markdown/AddingMarkdownToSvelte.md')).default
-  })
+	let markdown = '';
+
+	// When we mount this component, load the markdown chunk:
+	onMount(async () => {
+		markdown = (await import('$lib/markdown/AddingMarkdownToSvelte.md')).default;
+	});
 </script>
 
 <Layout>
-  <Markdown markdown={html} />
+	<Markdown markdown="{html}" />
 </Layout>
 ```
 
-One of those lines is a little odd, though: `(await import('$lib/markdown/AddingMarkdownToSvelte.md')).default`. As a side effect of loading this markdown content as an application chunk, it's been packaged as a module! 
+One of those lines is a little odd, though: `(await import('$lib/markdown/AddingMarkdownToSvelte.md')).default`. As a side effect of loading this markdown content as an application chunk, it's been packaged as a module!
 
 This does add a small bit of overhead into the file contents, but it's not much. And it does mean that we need to access the `default` export when we import the module.
 
@@ -86,15 +86,15 @@ The last change we need to make is to update the `Markdown` component to rerende
 But now, we need to be able to update the Markdown content when the chunk loads, and we'll use `beforeUpdate` from Svelte to do that:
 
 ```javascript
-  import { beforeUpdate } from 'svelte'
+import { beforeUpdate } from 'svelte';
 
-  export let markdown = ''
+export let markdown = '';
 
-  let rendered = ''
+let rendered = '';
 
-  beforeUpdate(() => {
-    rendered = md.render(markdown)
-  })
+beforeUpdate(() => {
+	rendered = md.render(markdown);
+});
 ```
 
 The component will still render the content like before: `{@html rendered}`, but now replacing the markdown will rerender the page.

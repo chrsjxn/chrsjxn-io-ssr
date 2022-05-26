@@ -1,42 +1,42 @@
 import netlify from '@sveltejs/adapter-netlify';
 
-import { Mode, plugin as markdown } from 'vite-plugin-markdown'
-import hljs from 'highlight.js/lib/core'
-import bash from 'highlight.js/lib/languages/bash'
-import javascript from 'highlight.js/lib/languages/javascript'
-import css from 'highlight.js/lib/languages/css'
-import hljsSvelte from 'highlightjs-svelte'
-import MarkdownIt from 'markdown-it'
-import Anchor from 'markdown-it-anchor'
-import { replaceCodePlugin } from "vite-plugin-replace"
+import { Mode, plugin as markdown } from 'vite-plugin-markdown';
+import hljs from 'highlight.js/lib/core';
+import bash from 'highlight.js/lib/languages/bash';
+import javascript from 'highlight.js/lib/languages/javascript';
+import css from 'highlight.js/lib/languages/css';
+import hljsSvelte from 'highlightjs-svelte';
+import MarkdownIt from 'markdown-it';
+import Anchor from 'markdown-it-anchor';
+import { replaceCodePlugin } from 'vite-plugin-replace';
 
-hljs.registerLanguage('bash', bash)
-hljs.registerLanguage('javascript', javascript)
-hljs.registerLanguage('css', css)
+hljs.registerLanguage('bash', bash);
+hljs.registerLanguage('javascript', javascript);
+hljs.registerLanguage('css', css);
 
-hljsSvelte(hljs)
+hljsSvelte(hljs);
 
 const markdownIt = new MarkdownIt({
 	highlight: function (str, lang) {
 		if (lang && hljs.getLanguage(lang)) {
 			try {
-				return hljs.highlight(str, { language: lang }).value
+				return hljs.highlight(str, { language: lang }).value;
 			} catch (e) {
 				// eslint-disable-next-line no-console
-				console.error('Failed to highlight string')
+				console.error('Failed to highlight string');
 			}
 		}
 
-		return '' // use external default escaping
-	},
+		return ''; // use external default escaping
+	}
 }).use(Anchor, {
 	slugify: (str) =>
 		str
 			.replace(/[^a-zA-Z-_ ]/g, '')
 			.toLowerCase()
 			.split(' ')
-			.join('-'),
-})
+			.join('-')
+});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -49,14 +49,19 @@ const config = {
 					markdownIt
 				}),
 				replaceCodePlugin({
-					replacements: [{
-						from: "/__img_path__/",
-						to: process.env.NODE_ENV === "development" ? "/images/" : "https://res.cloudinary.com/chrsjxn/image/fetch/q_auto,f_auto/https://www.chrsjxn.io/images/"
-					}]
+					replacements: [
+						{
+							from: '/__img_path__/',
+							to:
+								process.env.NODE_ENV === 'development'
+									? '/images/'
+									: 'https://res.cloudinary.com/chrsjxn/image/fetch/q_auto,f_auto/https://www.chrsjxn.io/images/'
+						}
+					]
 				})
 			]
 		}
-	},
+	}
 };
 
 export default config;

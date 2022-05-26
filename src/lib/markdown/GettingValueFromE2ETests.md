@@ -34,7 +34,7 @@ There are a ton of different tools and strategies for monitoring and detecting e
 
 This feels like a combination of my previous two suggestions, but I think it's worth calling out separately. (It's also the suggestion most likely to come up during a job interview!)
 
-Many of the failures I've seen with end to end tests could have been caught much sooner with stronger unit or integration testing. Especially as testing tools, like [Testing Library](https://testing-library.com/) and [MSW](https://mswjs.io/) get more sophisticated. 
+Many of the failures I've seen with end to end tests could have been caught much sooner with stronger unit or integration testing. Especially as testing tools, like [Testing Library](https://testing-library.com/) and [MSW](https://mswjs.io/) get more sophisticated.
 
 These tests give you more consistent results, and diligent developers might even catch problems before committing them. Debugging test failures is also significantly easier when you're only testing a small piece of your full application.
 
