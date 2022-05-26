@@ -2,6 +2,17 @@
 
 02/17/2021
 
+## Before we begin
+
+I've seen a lot of traffic on this post related to `@sveltejs/kit`, and likely connected
+to questions about unspecified dynamic imports (`` import(`components/${componentName}.svelte`) ``).
+
+This is a limitation of bundlers, starting from the early `webpack` days, because they statically
+analyze imports to identify which files need to be included in a bundle. If you want more
+information about the limitations, check out the [svelte issue](https://github.com/sveltejs/svelte/issues/6702).
+
+## Why add dynamic imports?
+
 [Dynamic imports](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import#dynamic_imports) are a really powerful JavaScript feature. Loading modules only when needed can significantly speed up the initial load of a single page application.
 
 There is a cost, of course. Loading pages that aren't included in your initial bundle will be slower. But if you pick less popular pages to dynamically import—like account settings—most of your users will never have to pay that cost!

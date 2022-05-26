@@ -9,11 +9,6 @@
 			cycleTheme();
 		}
 	};
-
-	const defaultTheme = {
-		name: 'full',
-		icon: '🌕'
-	};
 </script>
 
 <button on:click={cycleAndPersistTheme} aria-label="Toggle theme">{$theme?.icon}</button>
