@@ -4,11 +4,11 @@
 
 I started building a personal blog with Svelte a few weeks ago, cross posting to [dev.to](https://dev.to/chrsjxn) for more reach and community.
 
-And it ***sucks***!
+And it **_sucks_**!
 
 I've been manually building content with Svelte components, to get the look and feel I want on my site. And then I have to translate those posts into Markdown for posting elsewhere.
 
-So I'm going to build Markdown support for my Svelte site, starting with *this post*. I'll tell you how I'm doing it if you want to add support to your Svelte site, and I'll compare the output on both platforms when I'm done!
+So I'm going to build Markdown support for my Svelte site, starting with _this post_. I'll tell you how I'm doing it if you want to add support to your Svelte site, and I'll compare the output on both platforms when I'm done!
 
 ## Adding `markdown-it`
 
@@ -33,17 +33,17 @@ To support JSON, we just need to add a rollup plugin (`@rollup/plugin-json`) wit
 
 ```javascript
 // In imports:
-import json from '@rollup/plugin-json'
+import json from '@rollup/plugin-json';
 
 // In rollup config:
 export default {
-    //...
-    plugins: [
-        //...
-        json(),
-        //...
-    ]
-}
+	//...
+	plugins: [
+		//...
+		json()
+		//...
+	]
+};
 ```
 
 And we also need to tell `rollup` to include our `punycode` package into our browser bundle:
@@ -64,27 +64,27 @@ With those config updates, we should now be able to render Markdown inside of ou
 
 We'll take in our Markdown string as a prop (`markdown`) for now. That lets us test with a static string, and we can update the app to read Markdown from files or a CMS in the future.
 
-And we need to use Svelte's `@html` feature to add our generated HTML to the page. 
+And we need to use Svelte's `@html` feature to add our generated HTML to the page.
 
 ⚠️ Warning: Using `@html` with user submitted content could expose your users to an XSS vulnerability. `markdown-it` has documentation about its [security features and recommendations](https://github.com/markdown-it/markdown-it/blob/master/docs/security.md), which you should read and understand if you need to support user submitted content. ⚠️
 
 ```svelte
 <!-- src/Markdown.svelte -->
 <script>
-  import MarkdownIt from 'markdown-it'
+	import MarkdownIt from 'markdown-it';
 
-  export let markdown = ''
+	export let markdown = '';
 
-  // Initialize `markdown-it`
-  const md = new MarkdownIt()
+	// Initialize `markdown-it`
+	const md = new MarkdownIt();
 
-  // Render to an html string
-  const rendered = md.render(markdown)
+	// Render to an html string
+	const rendered = md.render(markdown);
 </script>
 
 <!-- Render with the `@html` directive -->
 <div>
-  {@html rendered}
+	{@html rendered}
 </div>
 ```
 
@@ -92,7 +92,7 @@ And we'll need to add our `Markdown` component to test:
 
 ```svelte
 <script>
-  import Markdown from './Markdown.svelte'
+	import Markdown from './Markdown.svelte';
 </script>
 
 <Markdown markdown="# Hello from Markdown!" />
@@ -114,19 +114,19 @@ And when we add it to `rollup.config.js`, we need to configure it to read `.md` 
 
 ```javascript
 // In imports:
-import { string } from 'rollup-plugin-string'
+import { string } from 'rollup-plugin-string';
 
 // In rollup config:
 export default {
-    //...
-    plugins: [
-        //...
-        string({
-            include: ['**/*.md'],
-        }),
-        //...
-    ]
-}
+	//...
+	plugins: [
+		//...
+		string({
+			include: ['**/*.md']
+		})
+		//...
+	]
+};
 ```
 
 ### Step 5: Updating our test to render from a file
@@ -136,15 +136,15 @@ First, let's create a new Markdown file to test, `src/example.md`:
 ```markdown
 # Hello from Markdown!
 
-We can render *text*.
+We can render _text_.
 ```
 
 And now import that markdown into your app:
 
 ```svelte
 <script>
-  import Markdown from './Markdown.svelte'
-  import exampleMarkdown from './example.md'
+	import Markdown from './Markdown.svelte';
+	import exampleMarkdown from './example.md';
 </script>
 
 <Markdown markdown={exampleMarkdown} />
@@ -167,36 +167,36 @@ We don't need to update our `rollup` config for this step, but we will need to c
 ```svelte
 <!-- src/Markdown.svelte -->
 <script>
-  import MarkdownIt from 'markdown-it'
+	import MarkdownIt from 'markdown-it';
 
-  // NEW: Import `highlight.js`
-  import hljs from 'highlight.js'
+	// NEW: Import `highlight.js`
+	import hljs from 'highlight.js';
 
-  export let markdown = ''
+	export let markdown = '';
 
-  // Initialize `markdown-it`
-  // NEW: Configure highlight via constructor params!
-  const md = new MarkdownIt({
-      highlight: function (str, lang) {
-      if (lang && hljs.getLanguage(lang)) {
-        try {
-          return hljs.highlight(lang, str).value
-        } catch (e) {
-          // eslint-disable-next-line no-console
-          console.error('Failed to highlight string')
-        }
-      }
-      return '' // use external default escaping
-    },
-  })
+	// Initialize `markdown-it`
+	// NEW: Configure highlight via constructor params!
+	const md = new MarkdownIt({
+		highlight: function (str, lang) {
+			if (lang && hljs.getLanguage(lang)) {
+				try {
+					return hljs.highlight(lang, str).value;
+				} catch (e) {
+					// eslint-disable-next-line no-console
+					console.error('Failed to highlight string');
+				}
+			}
+			return ''; // use external default escaping
+		}
+	});
 
-  // Render to an html string
-  const rendered = md.render(markdown)
+	// Render to an html string
+	const rendered = md.render(markdown);
 </script>
 
 <!-- Render with the `@html` directive -->
 <div>
-  {@html rendered}
+	{@html rendered}
 </div>
 ```
 
@@ -204,11 +204,11 @@ We don't need to update our `rollup` config for this step, but we will need to c
 
 Adding a code block to the example markdown will render a code block, but we're not currently getting any styling for our highlighting. We can import styles directly from [`highlight.js` styles](https://github.com/highlightjs/highlight.js/tree/master/src/styles), but we'll need to update our `rollup` config again for this to work.
 
-```markdown
+````markdown
     ```javascript
     console.log('and we can highlight code')
     ```
-```
+````
 
 We're going to add `rollup-plugin-styles` to handle our CSS imports.
 
@@ -220,17 +220,17 @@ And we can use its default configuration in `rollup.config.js`.
 
 ```javascript
 // In imports:
-import styles from 'rollup-plugin-styles'
+import styles from 'rollup-plugin-styles';
 
 // In rollup config:
 export default {
-    //...
-    plugins: [
-        //...
-        styles(),
-        //...
-    ]
-}
+	//...
+	plugins: [
+		//...
+		styles()
+		//...
+	]
+};
 ```
 
 Once we've done that, we can import a stylesheet from `highlight.js` into our `Markdown` component to render those styles into our site. I'm going to use `a11y-light` for this example, but there are lots of options you can pick, depending on your site's color scheme.

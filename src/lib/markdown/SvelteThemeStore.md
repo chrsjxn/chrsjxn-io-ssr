@@ -12,11 +12,11 @@ The secret to detecting a user's OS theme is the media query `prefers-color-sche
 
 ```css
 @media (prefers-color-scheme: dark) {
-  --background-color: midnightblue;
+	--background-color: midnightblue;
 }
 
 @media (prefers-color-scheme: light) {
-  --background-color: snow;
+	--background-color: snow;
 }
 ```
 
@@ -29,13 +29,13 @@ JavaScript supports executing any media query with [`window.matchMedia`](https:/
 The two properties we care about are `matches`, for checking the result of the media query, and `addListener` for detecting changes.
 
 ```javascript
-const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)')
+const darkModeQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-const darkModeEnabled = darkModeQuery.matches
+const darkModeEnabled = darkModeQuery.matches;
 
-darkModeQuery.addListener(event => {
-    console.log('Theme changed to:', event.matches ? 'dark' : 'light')
-})
+darkModeQuery.addListener((event) => {
+	console.log('Theme changed to:', event.matches ? 'dark' : 'light');
+});
 ```
 
 ## Building our Svelte store
@@ -47,29 +47,30 @@ So let's build a theme store for a Svelte app!
 We start by defining our writable store based on the user's OS theme when the store is first loaded:
 
 ```javascript
-import { writable } from 'svelte/store'
+import { writable } from 'svelte/store';
 
 // Set up our MediaQueryList
-const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)')
+const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)');
 
 // Initial theme config from current state
-export const theme = writable(prefersDarkMode.matches ? 'dark' : 'light')
+export const theme = writable(prefersDarkMode.matches ? 'dark' : 'light');
 ```
 
 This is a great start, and it's probably enough for many apps, because users don't change their OS themes too often. But it's only a little bit more work to add an event listener to detect changes:
 
 ```javascript
 // Update the store if OS preference changes
-const updateThemeOnChange = e => theme.set(e.matches ? 'dark' : 'light')
-prefersDarkMode.addListener(updateThemeOnChange)
+const updateThemeOnChange = (e) => theme.set(e.matches ? 'dark' : 'light');
+prefersDarkMode.addListener(updateThemeOnChange);
 
 // Export a function to clean up the listener if needed
-export const cleanUp = () => prefersDarkMode.removeListener(updateThemeOnChange)
+export const cleanUp = () => prefersDarkMode.removeListener(updateThemeOnChange);
 ```
 
 Putting all of this together, we have a simple theme store that responds to OS theme changes quickly! If you want to see a demo, you can check it out [on the Svelte REPL](https://svelte.dev/repl/15a88f72670845b4a173bc558fd537f9?version=3.29.7)!
 
 ## Caveats
+
 There are a few small gotchas with this approach that might result in your users seeing the wrong theme.
 
 A few browsers, including IE, do not support the media query we're using. However, nearly all browsers support `matchMedia`, so they should fall back to whichever theme you picked as the default. For full details, see [Can I use prefers-color-scheme?](https://caniuse.com/prefers-color-scheme).

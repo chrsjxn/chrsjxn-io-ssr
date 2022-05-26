@@ -51,7 +51,7 @@ We've already used a few Rollup plugins to add features to this blog, and we're 
 npm install --save-dev @rollup/plugin-replace
 ```
 
-[`@rollup/plugin-replace`](https://github.com/rollup/plugins/tree/master/packages/replace) will replace strings with other content during a build. And the `rollup.config.js` that comes with a new Svelte project already knows whether it's building for `production`. 
+[`@rollup/plugin-replace`](https://github.com/rollup/plugins/tree/master/packages/replace) will replace strings with other content during a build. And the `rollup.config.js` that comes with a new Svelte project already knows whether it's building for `production`.
 
 We're going to use the plugin to replace `__imgPath__` with the right path for each environment. That will be `/images` in local development, and `/cloudinary` on production:
 

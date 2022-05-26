@@ -6,26 +6,27 @@ Code review is a core piece of many engineering workflows. Good code review prac
 
 But if done carelessly, code review can also contribute to a toxic team culture. If feedback isn't given intentionally, it can add a lot of stress and anxiety to a process that's supposed to be helpful.
 
-Here are some of my tips for writing PR feedback, based on my experiences and some of the mistakes I've made. Not every review or every comment should use all of them, but using them will help keep your feedback constructive and collaborative! 
+Here are some of my tips for writing PR feedback, based on my experiences and some of the mistakes I've made. Not every review or every comment should use all of them, but using them will help keep your feedback constructive and collaborative!
 
 ## Table of Contents
-  - [Include positive and negative feedback!](#include-positive-and-negative-feedback)
-    - [⛔ Don't go overboard with positive feedback](#-dont-go-overboard-with-positive-feedback)
-    - [⛔ Don't leave insincere positive comments](#-dont-leave-insincere-positive-comments)
-    - [✅ Do leave emoji comments for quick praise](#-do-leave-emoji-comments-for-quick-praise)
-    - [✅ Do highlight things you learned as a reviewer](#-do-highlight-things-you-learned-as-a-reviewer)
-  - [Keep your feedback respectful](#keep-your-feedback-respectful)
-    - [⛔ Don't use dismissive language](#-dont-use-dismissive-language)
-    - [⛔ Don't leave comments without content](#-dont-leave-comments-without-content)
-    - [⛔ Don't repeat the same comment](#-dont-repeat-the-same-comment)
-    - [✅ Do respect different levels of expertise](#-do-respect-different-levels-of-expertise)
-  - [Be personal](#be-personal)
-    - [✅ Do offer feedback from your perspective](#-do-offer-feedback-from-your-perspective)
-    - [✅ Do ask questions](#-do-ask-questions)
-  - [Be explicit](#be-explicit)
-    - [✅ Be explicit about *why*](#-be-explicit-about-why)
-    - [✅ Be explicit about *importance*](#-be-explicit-about-importance)
-  - [Take conversations offline](#take-conversations-offline)
+
+- [Include positive and negative feedback!](#include-positive-and-negative-feedback)
+  - [⛔ Don't go overboard with positive feedback](#-dont-go-overboard-with-positive-feedback)
+  - [⛔ Don't leave insincere positive comments](#-dont-leave-insincere-positive-comments)
+  - [✅ Do leave emoji comments for quick praise](#-do-leave-emoji-comments-for-quick-praise)
+  - [✅ Do highlight things you learned as a reviewer](#-do-highlight-things-you-learned-as-a-reviewer)
+- [Keep your feedback respectful](#keep-your-feedback-respectful)
+  - [⛔ Don't use dismissive language](#-dont-use-dismissive-language)
+  - [⛔ Don't leave comments without content](#-dont-leave-comments-without-content)
+  - [⛔ Don't repeat the same comment](#-dont-repeat-the-same-comment)
+  - [✅ Do respect different levels of expertise](#-do-respect-different-levels-of-expertise)
+- [Be personal](#be-personal)
+  - [✅ Do offer feedback from your perspective](#-do-offer-feedback-from-your-perspective)
+  - [✅ Do ask questions](#-do-ask-questions)
+- [Be explicit](#be-explicit)
+  - [✅ Be explicit about _why_](#-be-explicit-about-why)
+  - [✅ Be explicit about _importance_](#-be-explicit-about-importance)
+- [Take conversations offline](#take-conversations-offline)
 
 ## Include positive and negative feedback!
 
@@ -94,7 +95,6 @@ These comments might be enough to raise attention to obvious issues, like a `deb
 
 ### ⛔ Don't repeat the same comment
 
-
 > // 👎 Don't:\
 > Don't use `any`\
 > Don't use `any`\
@@ -106,7 +106,7 @@ These comments might be enough to raise attention to obvious issues, like a `deb
 > \
 > I see a few instances of `any` in this PR. Can you update them to use stricter typing?
 
-Repeating the same comment multiple times makes it difficult to include relevant details in each comment, and you run the risk of overwhelming your other feedback. 
+Repeating the same comment multiple times makes it difficult to include relevant details in each comment, and you run the risk of overwhelming your other feedback.
 
 One or two repetitions is okay, as long as the comments have useful content.
 
@@ -153,7 +153,7 @@ Asking questions can also help you learn, if you're reviewing code for an app or
 
 When offering feedback, it helps to be explicit. It makes your expectations clearer to other participants, and can make your feedback more actionable.
 
-### ✅ Be explicit about *why*
+### ✅ Be explicit about _why_
 
 > // 👎 Don't:\
 > Don't use `any`.
@@ -167,7 +167,7 @@ Explaining why can also act as a teaching tool for your collaborators, because i
 
 If you've got docs, this is a great reason to link them!
 
-### ✅ Be explicit about *importance*
+### ✅ Be explicit about _importance_
 
 > // 👍 Do:\
 > I'm requesting changes on this PR. Please remove these secret keys from the source code and rotate them to avoid leaks before this is deployed to production.
