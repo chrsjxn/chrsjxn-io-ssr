@@ -4,7 +4,7 @@
 
 Early in 2022, I left my job after almost four years. I told my manager about my
 concerns early in 2021, but it took a few more months to recognize them as
-"burnout". I was happy to earn a late promotion to Staff Engineer, but that
+burnout. I was happy to earn a late promotion to Staff Engineer, but that
 recognition didn't solve the problems I had.
 
 This post is about burnout, and this post is mostly for me. I've started to 
@@ -45,7 +45,7 @@ better boundaries, what happens to the emergency calls they were handling
 before?
 
 That isn't to say that individual accommodations don't help! When I first called
-it "burnout", my manager helped me step back from my recruiting responsibilities
+it burnout, my manager helped me step back from my recruiting responsibilities
 for a few months. I stepped back from mentorship and I scheduled multiple
 vacations. Those changes gave me mental energy to see my concerns more clearly,
 and to focus on the most critical work. But the bigger problems remained
