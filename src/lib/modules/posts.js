@@ -77,7 +77,7 @@ export const posts = [
 ];
 
 export const sortedPosts = {};
-export const categories = []
+export const categories = [];
 
 for (let i = 0; i < posts.length; i++) {
 	const post = posts[i];

@@ -14,7 +14,7 @@
 <h1>Writing</h1>
 <ul>
 	{#each categories as category}
-	  <h2>{category}</h2>
+		<h2>{category}</h2>
 		{#each sortedPosts[category] as post}
 			<li class="post">
 				<Link href={post.path}>{post.title}</Link>

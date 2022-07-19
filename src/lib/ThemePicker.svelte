@@ -15,9 +15,10 @@
 
 <style>
 	button {
-		border: none;
+		border: solid 1px var(--accent-color);
+		border-radius: 4px;
 		background: none;
-		padding: 0 16px;
+		padding: 8px 16px;
 	}
 
 	@media (prefers-reduced-motion: no-preference) {
