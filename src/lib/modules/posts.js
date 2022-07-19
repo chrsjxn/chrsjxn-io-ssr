@@ -75,3 +75,18 @@ export const posts = [
 		category: 'Code review'
 	}
 ];
+
+export const sortedPosts = {};
+export const categories = []
+
+for (let i = 0; i < posts.length; i++) {
+	const post = posts[i];
+	const category = post.category;
+
+	if (sortedPosts[category] === undefined) {
+		sortedPosts[category] = [];
+		categories.push(category);
+	}
+
+	sortedPosts[category].push(post);
+}
