@@ -7,14 +7,14 @@ concerns early in 2021, but it took a few more months to recognize them as
 burnout. I was happy to earn a late promotion to Staff Engineer, but that
 recognition didn't solve the problems I had.
 
-This post is about burnout, and this post is mostly for me. I've started to 
+This post is about burnout, and this post is mostly for me. I've started to
 regain the joy of coding and learning, but I'm not ready to get back to OKRs,
 KPIs, performance reviews, and so many other aspects of professional development
 work.
 
-This post will share four lessons I learned about burnout from this experience. 
+This post will share four lessons I learned about burnout from this experience.
 The lessons will link to resources I found while working to understand my burnout,
-and they're all connected to personal examples. Your experiences with burnout 
+and they're all connected to personal examples. Your experiences with burnout
 and work stress will vary, but burnout is way too common in tech. Even if my lessons
 aren't directly relevant to you, I hope that they help you reflect on your own
 work.
@@ -143,7 +143,7 @@ solving it, but doesn't follow through?
 To be more concrete, my team had a bad tendency to start more projects than
 we had team members, and to lean on single contributors for efficiency.
 Those projects took longer than expected and often needed to cut scope to avoid
-even more delays. The cost of supporting our work was high, because only a few 
+even more delays. The cost of supporting our work was high, because only a few
 team members had the right knowledge to help users.
 The solution seemed obvious: work together and commit to fewer projects.
 But even when the team agreed to more collaboration, our ultimate plan
