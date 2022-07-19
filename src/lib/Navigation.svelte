@@ -35,6 +35,13 @@
 		padding: 16px 0;
 	}
 
+	.right-nav {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		gap: 8px;
+	}
+
 	@media print {
 		nav {
 			display: none;
@@ -42,8 +49,9 @@
 	}
 
 	button {
-		padding: 0 16px;
-		border: none;
+		border: solid 1px var(--accent-color);
+		border-radius: 4px;
 		background: none;
+		padding: 8px 16px;
 	}
 </style>
