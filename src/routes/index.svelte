@@ -4,22 +4,7 @@
 
 <script>
 	import Link from '../lib/Link.svelte';
-	import { posts } from '../lib/modules/posts';
-
-	const sortedPosts = {};
-	const categories = []
-
-	for (let i = 0; i < posts.length; i++) {
-		const post = posts[i];
-		const category = post.category;
-
-		if (sortedPosts[category] === undefined) {
-			sortedPosts[category] = [];
-			categories.push(category);
-		}
-
-		sortedPosts[category].push(post);
-	}
+	import { categories, sortedPosts } from '../lib/modules/posts';
 </script>
 
 <svelte:head>
