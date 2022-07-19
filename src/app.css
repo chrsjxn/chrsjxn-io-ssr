@@ -119,7 +119,7 @@ blockquote {
 	border-color: rgba(209, 213, 219, 1);
 	border-style: solid;
 	border-left-width: 4px;
-	padding-left: 1rem;
+	padding: 1rem;
 }
 
 img {

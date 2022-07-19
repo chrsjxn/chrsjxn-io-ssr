@@ -1,5 +1,11 @@
 export const posts = [
 	{
+		title: 'On Burnout: Lessons Learned',
+		date: '07/19/2022',
+		path: '/work/on-burnout',
+		external: ''
+	},
+	{
 		title: 'Building a blog with Svelte: Dynamic imports For Svelte components',
 		date: '02/17/2021',
 		path: '/svelte/dynamic-imports',
